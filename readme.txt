@@ -67,6 +67,10 @@ After activating the plugin, refer to the [wiki](https://github.com/ms-studio/mi
 
 All the plugins I tested are more complicated than needed. I tried many of them. I think that my concept is more simple, more robust and more flexible. :) 
 
+= Can I find you on GitHub? =
+
+Of course, here: [https://github.com/ms-studio/minimalistic-event-manager/](https://github.com/ms-studio/minimalistic-event-manager/) 
+
 == Changelog ==
 
 = 1.0 =
