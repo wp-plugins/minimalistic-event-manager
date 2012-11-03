@@ -1,5 +1,5 @@
 === Minimalistic Event Manager ===
-Contributors: Dan Stefancu, Vlad Socaciu, tar.gz
+Contributors: de-ce, tar.gz
 Tags: dates, events, time
 Requires at least: 3.4
 Tested up to: 3.5-Beta-2
