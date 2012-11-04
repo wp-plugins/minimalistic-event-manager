@@ -15,11 +15,11 @@ This plugin (MEM or Minimalistic Event Manager) is intended for theme authors an
 
 The MEM plugin offers a clean interface that allows to add event dates (start dates, end dates, repeating dates) to posts (and to any custom post type).
 
-The main features:
+= The main features =
 
 * Dates can be attached to any post type: Posts, Pages, Custom Post Types... (optionally, they can be restricted to specific content types).
 * Dates can be of three types: start dates, end dates, repeating dates.
-* There is no mandatory date format: Time, Day, and Month are optional. An event date could be "January 1969", or just "1969".
+* There is no mandatory date format: Time, Day, and Month are optional. An event date could be "January 2046", or just "2046".
 
 = What the plugin doesn't do =
 
@@ -65,7 +65,7 @@ After activating the plugin, refer to the [wiki](https://github.com/ms-studio/mi
 
 = There are hundreds of plugins doing exactly this — why a new one? =
 
-All the plugins I tested are more complicated than needed. I tried many of them. I think that my concept is more simple, more robust and more flexible. :) 
+All the date management plugins we tested are more complicated than needed. we tried many of them. we think that our concept is more simple, more robust and more flexible. :) 
 
 = Can I find you on GitHub? =
 
