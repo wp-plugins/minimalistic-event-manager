@@ -3,7 +3,7 @@
 Plugin Name: Minimalistic Event Manager
 Plugin URI: https://github.com/ms-studio/minimalistic-event-manager/
 Description: The plugin allows to add event dates (start dates, end dates) to posts (and to custom post types).
-Version: 1.0.1
+Version: 1.0.3
 Author: Dan Stefancu, Manuel Schmalstieg
 Author URI: http://dreamproduction.net
 
@@ -47,8 +47,8 @@ function mem_plugin_settings( $post_types = array('all'), $edit_mode = 'full' ) 
 		foreach($post_types as $type) {
 			if ( post_type_exists($type) )
 				$types[] = $type;
-		}
 	}
+}
 
 
 
@@ -220,7 +220,7 @@ function mem_touch_time( $type = 'start', $custom_date = '', $repeat_count = 0 )
 
 	if (get_option( 'mem_edit_mode') == 'alpha') {
 		$alpha = '<input type="text" class="full-date-alpha" name="' . $type . '_full-date-alpha' . ( $repeat_count ? '_'.$repeat_count : '' );
-		$alpha .= '" value="' . $custom_date  . '" size="32" maxlength="32" autocomplete="off" />';
+		$alpha .= '" value="' . $custom_date  . '" size="32" autocomplete="off" />';
 		echo $alpha;
 	} else {
 
@@ -256,7 +256,7 @@ function mem_touch_time( $type = 'start', $custom_date = '', $repeat_count = 0 )
 function mem_save_date( $id, $post ) {
 	$mem_post_types = get_option( 'mem_post_types' );
 
-	if ( $mem_post_types[0] == 'all' ) {
+	if ( isset($mem_post_types[0]) && $mem_post_types[0] == 'all' ) {
 		$mem_post_types = get_post_types(array('public' => true, 'show_ui' => true));
 	}
 

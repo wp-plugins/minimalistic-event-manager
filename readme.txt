@@ -3,8 +3,8 @@ Contributors: de-ce, tar.gz
 Donate link: https://flattr.com/thing/972318/
 Tags: dates, events, time
 Requires at least: 3.0
-Tested up to: 3.5
-Stable tag: 1.0.1
+Tested up to: 3.8
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,19 @@ Of course, here: [https://github.com/ms-studio/minimalistic-event-manager/](http
 3. An event with start date, repeating twice.
 
 == Changelog ==
+
+= 1.0.4 =
+* adapting to post-MP6 dashboard design
+* removing 32-characters limitation when using "alpha" mode
+* adding some date format translation strings, useful when using [the mem-extras](https://github.com/ms-studio/mem-extras)
+
+= 1.0.3 =
+* uses the icon font of MP6 if available
+
+= 1.0.2 =
+* improves css to adhere to MP6
+* fixes a php error visible in debug mode
+* fixes a js error, props to @Dan2k3k4
 
 = 1.0.1 =
 * fixes activation error on some older php versions
