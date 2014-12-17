@@ -3,7 +3,7 @@
 Plugin Name: Minimalistic Event Manager
 Plugin URI: https://github.com/ms-studio/minimalistic-event-manager/
 Description: The plugin allows to add event dates (start dates, end dates) to posts (and to custom post types).
-Version: 1.0.4
+Version: 1.0.7
 Author: Dan Stefancu, Manuel Schmalstieg
 Author URI: http://dreamproduction.net
 
@@ -40,7 +40,7 @@ function mem_plugin_settings( $post_types = array('all'), $edit_mode = 'full' ) 
 
 	$types = array();
 
-	if ( array_shift(array_values($post_types)) == 'all' ) {
+	if ( reset($post_types) == 'all' ) {
 		$types = get_post_types(array('public' => true, 'show_ui' => true));
 
 	} else {
@@ -75,7 +75,7 @@ function mem_add_metaboxes(){
 
 	// check needed only on first plugin run, after this, the default option will contain
 	// an array of all public post types
-	if ( array_shift(array_values($post_types)) == 'all' ) {
+	if ( reset($post_types) == 'all' ) {
 		$post_types = get_post_types(array('public' => true, 'show_ui' => true));
 	}
 
@@ -305,8 +305,11 @@ function mem_save_date( $id, $post ) {
 							$date .= "-" . zeroise( $day, 2 );
 							if ( !empty($hour) ) {
 								$date .= " " . zeroise( $hour, 2 );
-								if ( !empty($minute) )
+								if ( !empty($minute) ) {
 									$date .= ":" . $minute;
+								} else {
+									$date .= ":00";
+								}
 							}
 						}
 					}
@@ -383,8 +386,11 @@ function mem_save_date( $id, $post ) {
 					$date .= "-" . zeroise( $day, 2 );
 					if ( !empty($hour) ) {
 						$date .= " " . zeroise( $hour, 2 );
-						if ( !empty($minute) )
+						if ( !empty($minute) ) {
 							$date .= ":" . $minute;
+						} else {
+							$date .= ":00";
+						}
 					}
 				}
 			}
@@ -466,7 +472,16 @@ add_option( 'mem_edit_mode', 'full' );
 $all_post_types = get_post_types(array('public' => true, 'show_ui' => true));
 add_option( 'mem_post_types', $all_post_types);
 
-// add the hook as late as possible
+// Widgets
+
+if (version_compare(phpversion(), '5.3.0', '>=')) {
+    include_once (plugin_dir_path(__FILE__).'widgets/event-list.php');
+}
+
+// Functions
+include_once (plugin_dir_path(__FILE__).'functions/date-function.php');
+
+// Add the hook as late as possible
 add_action( 'admin_init', 'add_mem_hook', 100);
 add_action( 'admin_init', 'mem_add_metaboxes', 101 );
 add_action( 'admin_enqueue_scripts', 'mem_js' );
